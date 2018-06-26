@@ -25,3 +25,26 @@ tkinter.Label(mainWindow, text="Artists").grid(row=0, column=0)
 tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
 tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
 
+# ========= Artists listbox =========
+artistList = tkinter.Listbox(mainWindow)
+artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30, 0))
+artistList.config(border=2, relief='sunken')
+
+# ========= Album listbox =========
+albumLV = tkinter.Variable(mainWindow)
+albumLV.set(("Choose an artist",))
+albumList = tkinter.Listbox(mainWindow, listvariable=albumLV)
+albumList.grid(row=1, column=1, sticky='nsew', rowspan=2, padx=(30, 0))
+albumList.config(border=2, relief='sunken')
+
+# ========= Songs listbox =========
+songLV = tkinter.Variable(mainWindow)
+songLV.set(("Choose an album",))
+songList = tkinter.Listbox(mainWindow, listvariable=songLV)
+songList.grid(row=1, column=2, sticky='nsew', rowspan=2, padx=(30, 0))
+songList.config(border=2, relief='sunken')
+
+# ========= Main loop =========
+mainWindow.mainloop()
+print("Closing database connection")
+conn.close()
