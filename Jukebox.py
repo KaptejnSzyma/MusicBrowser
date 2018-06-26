@@ -20,3 +20,8 @@ mainWindow.rowconfigure(1, weight=5)
 mainWindow.rowconfigure(2, weight=5)
 mainWindow.rowconfigure(3, weight=1)
 
+# ========= Labels =========
+tkinter.Label(mainWindow, text="Artists").grid(row=0, column=0)
+tkinter.Label(mainWindow, text="Albums").grid(row=0, column=1)
+tkinter.Label(mainWindow, text="Songs").grid(row=0, column=2)
+
