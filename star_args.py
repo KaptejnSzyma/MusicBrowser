@@ -1,6 +1,6 @@
-def print_backwards(*args, file=None):
+def print_backwards(*args, **kwargs):
     for word in args[::-1]:
-        print(word[::-1], end=' ', file=file)
+        print(word[::-1], end=' ', **kwargs)
 
 
 with open("backwards.txt", 'w') as backwards:
