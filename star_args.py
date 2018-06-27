@@ -18,3 +18,7 @@ print(average(1, 2, 3, 4))
 message_tuple = build_tuple("hello", "planet", "earth", "take")
 print(type(message_tuple))
 print(message_tuple)
+
+number_tuple = build_tuple(1, 2, 3, 4, 5, 6)
+print(type(number_tuple))
+print(number_tuple)
