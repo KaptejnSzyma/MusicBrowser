@@ -15,6 +15,11 @@ def print_backwards(*args, **kwargs):
     # print(end=end_character) # which means we don't need this line
 
 
+def backwards_print(*args, **kwargs):
+    sep_character = kwargs.pop('sep', ' ')
+    print(sep_character.join(word[::-1] for word in args[::-1]), **kwargs)
+
+
 with open("backwards.txt", 'w') as backwards:
     print_backwards("hello", "planet", "earth", "take", "me", "to", "your", "leader", file=backwards, end='\n')
 
@@ -22,3 +27,5 @@ print()
 print("hello", "planet", "earth", "take", "me", "to", "your", "leader", end='', sep='\n**\n')
 print_backwards("hello", "planet", "earth", "take", "me", "to", "your", "leader", end='', sep='\n**\n')
 print('=' * 10)
+
+backwards_print("hello", "planet", "earth", "take", "me", "to", "your", "leader")
