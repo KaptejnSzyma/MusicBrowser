@@ -9,7 +9,7 @@ def average(*args):
 
 
 def build_tuple(*args):
-    return tuple(args)
+    return args
 
 
 print(average(1, 2, 3, 4))
