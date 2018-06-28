@@ -23,7 +23,7 @@ class Scrollbox(tkinter.Listbox):
 def get_albums(event):
     lb = event.widget
     index = lb.curselection()[0]
-    artist_name = lb.get(index)
+    artist_name = lb.get(index),
 
     # get the artist ID from the database row
     artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name = ?", artist_name).fetchone()
@@ -60,7 +60,7 @@ artistList.config(border=2, relief='sunken')
 for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
     artistList.insert(tkinter.END, artist[0])
 
-artistList.bind("**ListboxSelect>>", get_albums)
+artistList.bind("<<ListboxSelect>>", get_albums)
 # ========= Album listbox =========
 albumLV = tkinter.Variable(mainWindow)
 albumLV.set(("Choose an artist",))
