@@ -44,6 +44,9 @@ artistList = Scrollbox(mainWindow)
 artistList.grid(row=1, column=0, sticky='nsew', rowspan=2, padx=(30, 0))
 artistList.config(border=2, relief='sunken')
 
+for artist in conn.execute("SELECT artists.name FROM artists ORDER BY artists.name"):
+    artistList.insert(tkinter.END, artist[0])
+
 # ========= Album listbox =========
 albumLV = tkinter.Variable(mainWindow)
 albumLV.set(("Choose an artist",))
