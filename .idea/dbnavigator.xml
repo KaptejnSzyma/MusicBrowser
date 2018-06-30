@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -31,11 +31,14 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="1254a5d4-e04c-4123-8191-0e0729fb9cef">
-      <console name="Music" type="STANDARD" />
+      <console name="Music" type="STANDARD"><![CDATA[SELECT , COUNT(albums.name)]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="1254a5d4-e04c-4123-8191-0e0729fb9cef" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="1254a5d4-e04c-4123-8191-0e0729fb9cef" dataset="main.albums" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
