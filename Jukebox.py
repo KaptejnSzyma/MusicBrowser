@@ -52,19 +52,15 @@ class DataListBox(Scrollbox):
         for value in self.cursor:
             self.insert(tkinter.END, value[0])
 
+    def on_select(self, event):
+        if self.linked_box:
+            print(self is event.widget) # TODO delete this line
+            index = self.curselection()[0]
+            value = self.get(index),
 
-def get_albums(event):
-    lb = event.widget
-    index = lb.curselection()[0]
-    artist_name = lb.get(index),
-
-    # get the artist ID from the database row
-    artist_id = conn.execute("SELECT artists._id FROM artists WHERE artists.name = ?", artist_name).fetchone()
-    alist = []
-    for row in conn.execute("SELECT albums.name FROM albums WHERE albums.artist = ? ORDER BY albums.name", artist_id):
-        alist.append(row[0])
-    albumLV.set(tuple(alist))
-    songLV.set(("Choose an album",))
+            # get the artist ID from the database row
+            link_id = self.cursor.execute(self.sql_select + " WHERE "+ self.field + "=?", value).fetchone()[1]
+            self.linked_box.requery(link_id)
 
 
 def get_songs(event):
