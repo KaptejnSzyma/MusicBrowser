@@ -28,11 +28,24 @@ class DataListBox(Scrollbox):
         self.cursor = connection.cursor()
         self.table = table
         self.field = field
+
         self.sql_select = "SELECT " + self.field + ", _id" + " FROM " + self.table
         if sort_order:
-            self.sql_select = " ORDER BY " + ','.join(sort_order)
+            self.sql_sort = " ORDER BY " + ','.join(sort_order)
         else:
-            self.sql_select = " ORDER BY " + self.field
+            self.sql_sort = " ORDER BY " + self.field
+
+    def clear(self):
+        self.delete(0, tkinter.END)
+
+    def requery(self):
+        print(self.sql_select + self.sql_sort)  # TODO delete this line
+        self.cursor.execute(self.sql_select + self.sql_sort)
+
+        # clear the listbox contents before re-loading
+        self.clear()
+        for value in self.cursor:
+            self.insert(tkinter.END, value[0])
 
 
 def get_albums(event):
